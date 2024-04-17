@@ -126,13 +126,13 @@ class HBNBCommand(cmd.Cmd):
                 if type(arg_splited[1]) is str:
                     arg_splited[1] = arg_splited[1].replace("_", " ").replace('"', '\\"')
                 kw[arg_splited[0]] = arg_splited[1]
-            except SyntaxError:
-                print("** class name missing **")
-            except NameError:
-                print("** class doesn't exist **")
-            new_instance = HBNBCommand.classes[list_args[0]](**kw)
-            new_instance.save()
-            print(new_instance.id)
+        except SyntaxError:
+            print("** class name missing **")
+        except NameError:
+            print("** class doesn't exist **")
+        new_instance = HBNBCommand.classes[list_args[0]](**kw)
+        new_instance.save()
+        print(new_instance.id)
 
     def help_create(self):
         """ Help information for the create method """
